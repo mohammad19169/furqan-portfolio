@@ -110,12 +110,13 @@
   /* hex avatar */
   .avatar-wrap{position:relative;display:flex;justify-content:center;align-items:center}
   .avatar-glow{position:absolute;width:330px;height:330px;border-radius:50%;background:radial-gradient(circle,rgba(34,211,238,.3),transparent 65%);filter:blur(36px)}
-  .hex-ring{position:absolute;width:312px;height:344px;background:conic-gradient(from 0deg,var(--cyan),var(--emerald),var(--blue),var(--cyan));
-    clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);animation:spin 16s linear infinite;filter:blur(1px)}
+  .hex-ring{position:absolute;width:328px;height:328px;border-radius:50%;background:conic-gradient(from 0deg,var(--cyan),var(--emerald),var(--blue),var(--cyan));
+    animation:spin 16s linear infinite;filter:blur(1px);will-change:transform}
   @keyframes spin{to{transform:rotate(360deg)}}
-  .hex{position:relative;width:296px;height:328px;clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%);
-    background:linear-gradient(160deg,#0a1418,#0d1d22);display:grid;place-items:center;z-index:2;overflow:hidden}
-  .hex img{width:100%;height:100%;object-fit:cover}
+  .hex{position:relative;width:300px;height:300px;border-radius:50%;
+    background:linear-gradient(160deg,#0a1418,#0d1d22);display:grid;place-items:center;z-index:2;overflow:hidden;
+    border:4px solid var(--bg);box-shadow:0 0 0 1px var(--line),0 24px 70px rgba(0,0,0,.55)}
+  .hex img{width:100%;height:100%;object-fit:cover;transform:scale(1.08)}
   .hex .mono{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:5.5rem;background:var(--grad-3);
     -webkit-background-clip:text;background-clip:text;color:transparent;letter-spacing:-3px}
   .hex .sub-mono{position:absolute;bottom:54px;font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:3px;color:var(--cyan);opacity:.7}
@@ -224,7 +225,7 @@
     .burger.x span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
   }
   @media(max-width:480px){
-    .hex{width:240px;height:266px}.hex-ring{width:256px;height:282px}.hex .mono{font-size:4.4rem}
+    .hex{width:240px;height:240px}.hex-ring{width:264px;height:264px}
     .stats{grid-template-columns:1fr}
   }
 </style>
@@ -265,11 +266,7 @@
     <div class="avatar-wrap reveal">
       <div class="avatar-glow"></div>
       <div class="hex-ring"></div>
-      <!-- Swap the .mono block below for: <div class="hex"><img src="assets/profile.jpg" alt="Muhammad Furqan"/></div> -->
-      <div class="hex">
-        <span class="mono">MF</span>
-        <span class="sub-mono">SECURITY</span>
-      </div>
+      <div class="hex"><img src="assets/profile.png" alt="Muhammad Furqan" /></div>
       <span class="badge-float bf1">🛡️ eJPT</span>
       <span class="badge-float bf2">⚡ Top 4%</span>
     </div>
